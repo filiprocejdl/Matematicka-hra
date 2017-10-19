@@ -5,8 +5,19 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Matematická_hra"
         mc:Ignorable="d"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        TextElement.FontWeight="Regular"
+        TextElement.FontSize="13"
+        TextOptions.TextFormattingMode="Ideal" 
+        TextOptions.TextRenderingMode="Auto"        
+        Background="{DynamicResource MaterialDesignPaper}"
+        FontFamily="{DynamicResource MaterialDesignFont}"
         Title="MainWindow" Height="350" Width="525">
     <Grid>
-        
+        <Button Content="Odpoved1" HorizontalAlignment="Left" Margin="98,241,0,0" VerticalAlignment="Top" Width="99" Click="Button_Click"/>
+        <Button Content="Odpoved2" HorizontalAlignment="Left" Margin="330,241,0,0" VerticalAlignment="Top" Width="99" Click="Button_Click_1"/>
+        <TextBlock x:Name="priklad" HorizontalAlignment="Left" Margin="170,151,0,0" TextWrapping="Wrap" Text="Příklad" VerticalAlignment="Top" Width="181" Height="61" Cursor="None" FontSize="24" TextAlignment="Center" TextDecorations="{x:Null}" Foreground="#DDFFFFFF"/>
+        <ProgressBar   x:Name="progess" HorizontalAlignment="Left" Height="18" Margin="98,87,0,0"   VerticalAlignment="Top" Width="331" Opacity="0.8" Value="0"/>
+
     </Grid>
 </Window>
