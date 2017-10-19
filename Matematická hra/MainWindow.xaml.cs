@@ -23,17 +23,37 @@ namespace Matematická_hra
         Random rnd = new Random();
         public int pekne = 10;
         public int Level = 1;
+        public int tlacitkoChange;
+
         public MainWindow()
         {
             InitializeComponent();
            
         }
 
+
         public void generovaniPrikladu()
         {
-            int cislo1 = rnd.Next(1, 10);
+            int cislo1 = rnd.Next(1 + Level, 10 + Level);
             int cislo2 = rnd.Next(1, 10);
             int curect = cislo1 + cislo2;
+            int fake = cislo1 + cislo2 + rnd.Next(1, 10);
+
+            tlacitkoChange = rnd.Next(0,2);
+
+            if (tlacitkoChange == 1)
+            {
+                Vysledek1.Content = curect;
+                Vysledek2.Content = fake;
+                
+            } else
+            {
+                Vysledek2.Content = curect;
+                Vysledek1.Content = fake;
+            }
+            
+            
+
 
             string vysledek = cislo1 + "+" + cislo2;
 
@@ -44,7 +64,15 @@ namespace Matematická_hra
         {
             generovaniPrikladu();
             kontrolaPekneMinus();
-            pekne = pekne + 10;
+
+            if (tlacitkoChange  == 1)
+            {
+                pekne = pekne + 10;
+                Level = Level + 1;
+            } else
+            {
+                pekne = pekne - 10;
+            }
             progess.Value = pekne;
             Gay();
 
@@ -54,7 +82,15 @@ namespace Matematická_hra
         {
             generovaniPrikladu();
             kontrolaPekneMinus();
-            pekne = pekne - 10;
+            if (tlacitkoChange == 0)
+            {
+                pekne = pekne + 10;
+                Level = Level + 1;
+            }
+            else
+            {
+                pekne = pekne - 10;
+            }
             progess.Value = pekne;
 
 
