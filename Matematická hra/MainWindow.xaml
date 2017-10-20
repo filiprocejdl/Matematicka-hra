@@ -13,12 +13,12 @@
         Background="{DynamicResource MaterialDesignPaper}"
         FontFamily="{DynamicResource MaterialDesignFont}"
         Title="Matematická hra" Height="350" Width="525">
-    <Grid>
-        <Button x:Name="Vysledek1" Content="Nová hra" HorizontalAlignment="Left" Margin="98,241,0,0" VerticalAlignment="Top" Width="99" Click="Button_Click"/>
-        <Button x:Name="Vysledek2" Content="Konec" HorizontalAlignment="Left" Margin="330,241,0,0" VerticalAlignment="Top" Width="99" Click="Button_Click_1"/>
-        <TextBlock x:Name="priklad" HorizontalAlignment="Left" Margin="170,151,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="181" Height="61" Cursor="Arrow" FontSize="24" TextAlignment="Center" TextDecorations="{x:Null}" Foreground="#DDFFFFFF"/>
-        <ProgressBar   x:Name="progess" HorizontalAlignment="Left" Height="18" Margin="98,87,0,0"   VerticalAlignment="Top" Width="331" Opacity="0.8" Value="0"/>
-        <Label x:Name="level" Content="LEVELIS" Margin="0,33,199,0" FontSize="22" RenderTransformOrigin="0.245,0.286" FontWeight="Bold" HorizontalAlignment="Right" Width="97" Height="36" VerticalAlignment="Top"/>
+    <Grid Margin="0,0,0,-3">
+        <Button x:Name="Vysledek1" Content="NEW GAME" HorizontalAlignment="Left" Margin="98,241,0,0" VerticalAlignment="Top" Width="114" Click="Button_Click"/>
+        <Button x:Name="Vysledek2" Content="QUIT" HorizontalAlignment="Left" Margin="315,241,0,0" VerticalAlignment="Top" Width="114" Click="Button_Click_1"/>
+        <TextBlock x:Name="priklad" HorizontalAlignment="Left" Margin="168,175,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="181" Height="61" Cursor="Arrow" FontSize="24" TextAlignment="Center" TextDecorations="{x:Null}" Foreground="#DDFFFFFF"/>
+        <ProgressBar   x:Name="progess" HorizontalAlignment="Left" Height="18" Margin="98,122,0,0"   VerticalAlignment="Top" Width="331" Opacity="0.8" Value="0"/>
+        <TextBlock x:Name="level" Text="START" TextAlignment="Center" Margin="0,51,209,0" FontSize="22" RenderTransformOrigin="0.245,0.286" FontWeight="Bold" HorizontalAlignment="Right" Width="97" Height="36" VerticalAlignment="Top"/>
 
     </Grid>
 </Window>

@@ -44,7 +44,7 @@ namespace Matematická_hra
             int fake = cislo1 * cislo2 + rnd.Next(1, 10);
    
             tlacitkoChange = rnd.Next(0,2);
-            level.Content = "Level " + Level;
+            level.Text = "Level " + Level;
 
             if (tlacitkoChange == 1)
             {
@@ -69,7 +69,7 @@ namespace Matematická_hra
         {
             GameStart();            
             kontrolaPekne();
-            level.Content = "Level " + Level;
+            level.Text = "Level " + Level;
 
             if (tlacitkoChange  == 1)
             {
@@ -123,10 +123,11 @@ namespace Matematická_hra
         public void Win()
          {
             if (progess.Value == 100)
-            {                
-                priklad.Text = "Vyhrál jsi!";
-                Vysledek1.Content = "Nová hra";
-                Vysledek2.Content = "Ukončit";
+            {
+                level.Text = "WIN";
+                priklad.Text = "";
+                Vysledek1.Content = "NEW GAME";
+                Vysledek2.Content = "QUIT";
                 tlacitkoChange = 3;
 
             }
@@ -175,6 +176,7 @@ namespace Matematická_hra
             if (tlacitkoChange == 3 | tlacitkoChange == 2)
             {
                 pekne = 0;
+                Level = 1;
                
             }
         }
