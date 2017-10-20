@@ -23,7 +23,7 @@ namespace Matematická_hra
         Random rnd = new Random();
         public int pekne = 10;
         public int Level = 1;
-        public int tlacitkoChange;
+        int tlacitkoChange = 2;
 
         public MainWindow()
         {
@@ -32,87 +32,155 @@ namespace Matematická_hra
         }
 
 
+       
+        
+
+        //přiklad
         public void generovaniPrikladu()
         {
             int cislo1 = rnd.Next(1 + Level, 10 + Level);
-            int cislo2 = rnd.Next(1, 10);
-            int curect = cislo1 + cislo2;
-            int fake = cislo1 + cislo2 + rnd.Next(1, 10);
-
+            int cislo2 = rnd.Next(1 + Level, 10 + Level);
+            int curect = cislo1 * cislo2;
+            int fake = cislo1 * cislo2 + rnd.Next(1, 10);
+   
             tlacitkoChange = rnd.Next(0,2);
+            level.Content = "Level " + Level;
 
             if (tlacitkoChange == 1)
             {
                 Vysledek1.Content = curect;
                 Vysledek2.Content = fake;
                 
-            } else
-            {
-                Vysledek2.Content = curect;
-                Vysledek1.Content = fake;
             }
-            
-            
+            else
+            {
+                Vysledek1.Content = fake;
+                Vysledek2.Content = curect;
+                
+            }
 
-
-            string vysledek = cislo1 + "+" + cislo2;
+            string vysledek = cislo1 + "*" + cislo2;
 
             priklad.Text = vysledek;
         }
 
+        //tlacitka
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            generovaniPrikladu();
-            kontrolaPekneMinus();
+            GameStart();            
+            kontrolaPekne();
+            level.Content = "Level " + Level;
 
             if (tlacitkoChange  == 1)
             {
                 pekne = pekne + 10;
                 Level = Level + 1;
-            } else
+                
+            }
+            else if (tlacitkoChange == 0)
             {
                 pekne = pekne - 10;
+                Level = Level - 1;
             }
+
+            kontrolaLevel();
+            generovaniPrikladu();
             progess.Value = pekne;
-            Gay();
+            Win();
 
         }
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            generovaniPrikladu();
-            kontrolaPekneMinus();
-            if (tlacitkoChange == 0)
+
+            GameEnde();          
+            kontrolaPekne();
+
+            if (tlacitkoChange == 1)
+            {
+                pekne = pekne - 10;
+                Level = Level - 1;
+            }
+            else if (tlacitkoChange == 0)
             {
                 pekne = pekne + 10;
                 Level = Level + 1;
+
             }
-            else
-            {
-                pekne = pekne - 10;
-            }
+            
+            generovaniPrikladu();
+            kontrolaLevel();
             progess.Value = pekne;
+            Win();
+            
+
 
 
 
         }
-
-         public void Gay()
+        
+        //funkce
+        public void Win()
          {
             if (progess.Value == 100)
-            {
+            {                
                 priklad.Text = "Vyhrál jsi!";
+                Vysledek1.Content = "Nová hra";
+                Vysledek2.Content = "Ukončit";
+                tlacitkoChange = 3;
+
             }
          }
 
-        public void kontrolaPekneMinus()
+        public void kontrolaLevel()
+        {      
+            if (Level < 1)
+            {
+                Level = 1;
+            }
+
+            if (Level > 10)
+            {
+                Level = 10;
+            }
+            
+        }
+
+        public void kontrolaPekne()
         {
+            if (pekne > 100)
+            {
+                pekne = 100;
+            }
+
             if (pekne < 0)
             {
                 pekne = 0;
             }
+
+            
         }
 
-        
+        public void GameEnde()
+        {
+            if (tlacitkoChange == 3 | tlacitkoChange == 2)
+            {
+                Close();
+            }
+            
+        }
+
+        public void GameStart()
+        {
+            if (tlacitkoChange == 3 | tlacitkoChange == 2)
+            {
+                pekne = 0;
+               
+            }
+        }
+
+
+
+
     }
 }

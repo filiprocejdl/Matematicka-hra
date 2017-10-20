@@ -14,10 +14,11 @@
         FontFamily="{DynamicResource MaterialDesignFont}"
         Title="MainWindow" Height="350" Width="525">
     <Grid>
-        <Button x:Name="Vysledek1" Content="Odpoved1" HorizontalAlignment="Left" Margin="98,241,0,0" VerticalAlignment="Top" Width="99" Click="Button_Click"/>
-        <Button x:Name="Vysledek2" Content="Odpoved2" HorizontalAlignment="Left" Margin="330,241,0,0" VerticalAlignment="Top" Width="99" Click="Button_Click_1"/>
-        <TextBlock x:Name="priklad" HorizontalAlignment="Left" Margin="170,151,0,0" TextWrapping="Wrap" Text="Příklad" VerticalAlignment="Top" Width="181" Height="61" Cursor="None" FontSize="24" TextAlignment="Center" TextDecorations="{x:Null}" Foreground="#DDFFFFFF"/>
+        <Button x:Name="Vysledek1" Content="Nová hra" HorizontalAlignment="Left" Margin="98,241,0,0" VerticalAlignment="Top" Width="99" Click="Button_Click"/>
+        <Button x:Name="Vysledek2" Content="Konec" HorizontalAlignment="Left" Margin="330,241,0,0" VerticalAlignment="Top" Width="99" Click="Button_Click_1"/>
+        <TextBlock x:Name="priklad" HorizontalAlignment="Left" Margin="170,151,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="181" Height="61" Cursor="Arrow" FontSize="24" TextAlignment="Center" TextDecorations="{x:Null}" Foreground="#DDFFFFFF"/>
         <ProgressBar   x:Name="progess" HorizontalAlignment="Left" Height="18" Margin="98,87,0,0"   VerticalAlignment="Top" Width="331" Opacity="0.8" Value="0"/>
+        <Label x:Name="level" Content="Level 1" Margin="0,33,199,0" FontSize="22" RenderTransformOrigin="0.245,0.286" FontWeight="Bold" HorizontalAlignment="Right" Width="97" Height="36" VerticalAlignment="Top"/>
 
     </Grid>
 </Window>
